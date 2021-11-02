@@ -1,5 +1,6 @@
 package brian.big.compose
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -62,7 +63,8 @@ fun MessageCard(msg: Message){
         }
     }
 }
-@Preview(showBackground = true)
+@Preview(name = "lightMode")
+@Preview(name = "darkMode",showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun PreviewMessageCard(){
     ComposeTheme {

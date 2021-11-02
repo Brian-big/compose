@@ -34,22 +34,30 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MessageCard(msg: Message){
-    Row {
-        Image(painter = painterResource(id = R.drawable.admin_ic), contentDescription = "contact profile picture",
-        modifier = Modifier
-            .size(40.dp)
-            .clip(CircleShape)
-            .border(1.5.dp, MaterialTheme.colors.secondary, CircleShape)
-        )
-        Spacer(modifier = Modifier.width(8.dp))
-        Column {
-            Text(text = msg.author, color = MaterialTheme.colors.secondaryVariant,
-            style = MaterialTheme.typography.subtitle2)
-            Spacer(modifier = Modifier.height(4.dp))
-            Surface(shape = MaterialTheme.shapes.medium, elevation = 2.dp){
-                Text(text = msg.body,
-                    modifier = Modifier.padding(all =4.dp),
-                    style = MaterialTheme.typography.body2)
+    Surface(shape = MaterialTheme.shapes.large, elevation = 3.dp, modifier = Modifier.padding(all = 16.dp)) {
+        Row {
+            Image(
+                painter = painterResource(id = R.drawable.admin_ic),
+                contentDescription = "contact profile picture",
+                modifier = Modifier
+                    .size(40.dp)
+                    .clip(CircleShape)
+                    .border(1.5.dp, MaterialTheme.colors.secondary, CircleShape)
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            Column {
+                Text(
+                    text = msg.author, color = MaterialTheme.colors.secondaryVariant,
+                    style = MaterialTheme.typography.subtitle2
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+                Surface(shape = MaterialTheme.shapes.medium, elevation = 2.dp) {
+                    Text(
+                        text = msg.body,
+                        modifier = Modifier.padding(all = 4.dp),
+                        style = MaterialTheme.typography.body2
+                    )
+                }
             }
         }
     }

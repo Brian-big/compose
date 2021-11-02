@@ -14,7 +14,6 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -35,8 +34,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MessageCard(msg: Message){
-    Surface(shape = MaterialTheme.shapes.large, elevation = 3.dp, modifier = Modifier.padding(all = 16.dp)) {
-        Row {
+    Row {
             Image(
                 painter = painterResource(id = R.drawable.admin_ic),
                 contentDescription = "contact profile picture",
@@ -61,9 +59,8 @@ fun MessageCard(msg: Message){
                 }
             }
         }
-    }
 }
-@Preview(name = "lightMode")
+@Preview(name = "lightMode", showBackground = true)
 @Preview(name = "darkMode",showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun PreviewMessageCard(){

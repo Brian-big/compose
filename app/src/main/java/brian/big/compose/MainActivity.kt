@@ -7,6 +7,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -25,12 +27,29 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                    MessageCard(msg = Message("brian", "Hello, i just started composing and it's really cool"))
+                    Conversation(SampleData.conversationSample)
                 }
             }
         }
     }
 }
+
+@Composable
+fun Conversation(messages: List<Message>) {
+    LazyColumn {
+        items(messages) { message ->
+            MessageCard(message)
+        }
+    }
+}
+@Preview
+@Composable
+fun PreviewConversation() {
+    ComposeTheme {
+        Conversation(SampleData.conversationSample)
+    }
+}
+
 
 @Composable
 fun MessageCard(msg: Message){
